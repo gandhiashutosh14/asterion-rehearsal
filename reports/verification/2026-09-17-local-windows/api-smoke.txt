@@ -1,0 +1,11 @@
+PASS GET /healthz -> 200 synthetic-only
+PASS GET /v1/runs without a token -> 401
+PASS POST /v1/runs -> 201 PENDING_REVIEW
+PASS same Idempotency-Key -> 200, same run
+PASS same key, different request -> 409
+PASS GET events -> SSE journal replay
+PASS operator cannot review -> 403
+PASS reviewer approves with the exact digest -> APPROVED
+PASS second review -> 409
+PASS GET report -> HTML with nosniff
+10 of 10 checks passed

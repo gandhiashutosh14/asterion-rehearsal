@@ -1,0 +1,84 @@
+{
+  "kind": "synthetic-policy-case-study",
+  "engine": "reference",
+  "planner": "deterministic",
+  "generated_at": "2026-09-16T18:52:19.228971+00:00",
+  "python": "3.11.9",
+  "dependencies": {
+    "pydantic": "2.13.5",
+    "PyYAML": "6.0.3"
+  },
+  "scope": "No LLM, network, live connector, cloud deployment or production certification.",
+  "command": "python scripts/benchmark.py",
+  "results": [
+    {
+      "profile": "optimistic",
+      "suite": "happy-only",
+      "scenarios": 2,
+      "required_cells": 12,
+      "covered_cells": 1,
+      "failed_cells": 0,
+      "coverage": 0.08333333333333333,
+      "observed_witness_pass_rate": 1.0,
+      "state": "HOLD",
+      "elapsed_seconds": 0.008092,
+      "evidence_digest": "9f904fafe522e7308f38e7df2520cb850b928f7c2ccbc5845b511b9896a3440a"
+    },
+    {
+      "profile": "optimistic",
+      "suite": "complete",
+      "scenarios": 13,
+      "required_cells": 12,
+      "covered_cells": 12,
+      "failed_cells": 10,
+      "coverage": 1.0,
+      "observed_witness_pass_rate": 0.23076923076923078,
+      "state": "BLOCKED",
+      "elapsed_seconds": 0.013638,
+      "evidence_digest": "c33c1406a47025199f168983fc2fc2e830e480619ba72012cd0ae074416bdad1"
+    },
+    {
+      "profile": "guarded",
+      "suite": "happy-only",
+      "scenarios": 2,
+      "required_cells": 12,
+      "covered_cells": 1,
+      "failed_cells": 0,
+      "coverage": 0.08333333333333333,
+      "observed_witness_pass_rate": 1.0,
+      "state": "HOLD",
+      "elapsed_seconds": 0.005979,
+      "evidence_digest": "e33f3c40dbd8fd478e43193c937f0b563424098c969e723c87f7cf2d66b22a60"
+    },
+    {
+      "profile": "guarded",
+      "suite": "complete",
+      "scenarios": 13,
+      "required_cells": 12,
+      "covered_cells": 12,
+      "failed_cells": 0,
+      "coverage": 1.0,
+      "observed_witness_pass_rate": 1.0,
+      "state": "PENDING_REVIEW",
+      "elapsed_seconds": 0.014003,
+      "evidence_digest": "2acb7a0ebd1ab221c9ad716a03b1b54ca3f8bf0d1d951aa0b9821a5966b16916"
+    }
+  ],
+  "source_sha256": {
+    "src/asterion/__init__.py": "0511825b7b1f2e9a7d09e6417064173481426bb19bfe3718510ee235826e4776",
+    "src/asterion/api.py": "3d7c0f322ba7f0a137b459fa093ef12ebe8d64704661d007a57fe34755a3c2bd",
+    "src/asterion/catalog.py": "e4f3e6b3129ef58368a161dd6e384bb96ad6637894b73b0f34230adf473336f6",
+    "src/asterion/cli.py": "4ca50bdf7c1b6e51269271d6379cbe443e0f7aacd2c837c62562d5e12726642c",
+    "src/asterion/data/contract.synthetic.yaml": "07d775a4fe73439a90101f8e31c20298b0f6b3c4af8ce05ed98f6523f4d617c6",
+    "src/asterion/data/scenarios.synthetic.json": "6a1efe973e60aa21ce24610266b7557454efdc0a1c517de6f57507b6fb55afc7",
+    "src/asterion/evidence.py": "0efd0766c0c44f0d25a70e50fd15b51dd06c805cb42def4ffb1d1564ac136bb3",
+    "src/asterion/langgraph_runtime.py": "b257705d1b7caf32f020c2f20bbbf3486099fda1a169fcd6caf56c0a08426697",
+    "src/asterion/models.py": "01718c9616286f37febd18c64eb3b280cd3e38e81e6cadfb914c344cf2334f73",
+    "src/asterion/planning.py": "e52de846f8e06a7feb2b663acbf6b4d3ff4eafa378d09bbeca68b86742049f8e",
+    "src/asterion/reporting.py": "5d4f3babdc4512aaba0390380fa7e66fa9cef6643d50b1c06e32610fa16cdb97",
+    "src/asterion/storage.py": "9385c92fc4ffed409fb074f05e3a28f65d656999310a0b3f3f705e888804c9ab",
+    "src/asterion/telemetry.py": "935558240db505e1010c317359aaa6c307cc5fbea2b5a6e38641c9efd3c86554",
+    "src/asterion/twin.py": "1da47c35e9170d3054490234b5038fc7446941a7ea48d8cefd612d8bf3457e49",
+    "src/asterion/workflow.py": "e571897ef639d72f892286d17bc921f348322c4707d2ad583ba7bc06f76b8954"
+  }
+}

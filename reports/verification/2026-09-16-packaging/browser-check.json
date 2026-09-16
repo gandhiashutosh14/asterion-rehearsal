@@ -1,0 +1,13 @@
+{
+  "engine": "Playwright Chromium",
+  "network": "page.set_content from local HTML; no network requests",
+  "checks": [
+    "Default happy-only case: HOLD and 12 required rows",
+    "Optimistic complete: BLOCKED and 10 selectable counterexamples",
+    "Counterexample selection renders JSON with textContent",
+    "Guarded complete: PENDING REVIEW, no false auto-deployment",
+    "390px responsive view has no horizontal document overflow",
+    "Actual generated dossier renders in Chromium"
+  ],
+  "page_errors": []
+}

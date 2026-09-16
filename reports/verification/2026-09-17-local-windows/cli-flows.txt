@@ -1,0 +1,24 @@
+$ asterion --state-dir STATE demo --output OUT/guarded
+{
+  "run_id": "<RUN_ID>",
+  "status": "PENDING_REVIEW",
+  "coverage": 1.0,
+  "evidence_digest": "<DIGEST>",
+  "output": "<OUT>"
+}
+exit=0
+$ asterion --state-dir STATE review RUN_ID --digest 000...0 --decision approve (stale digest)
+asterion.storage.ConflictError: evidence digest does not match; reload the dossier
+$ asterion --state-dir STATE review RUN_ID --digest EVIDENCE_DIGEST --decision approve
+{'status': 'APPROVED', 'coverage': 1.0}
+$ asterion --state-dir STATE demo --suite happy-only
+{'status': 'HOLD', 'coverage': 0.08333333333333333}
+$ asterion --state-dir STATE demo --profile optimistic
+{'status': 'BLOCKED', 'coverage': 1.0}
+$ asterion --state-dir STATE demo --engine langgraph
+{'status': 'PENDING_REVIEW', 'coverage': 1.0, 'evidence_digest': '<DIGEST>'}
+$ asterion --state-dir STATE review LANGGRAPH_RUN_ID --digest EVIDENCE_DIGEST --decision approve  (new process resumes the LangGraph interrupt)
+{'status': 'APPROVED', 'coverage': 1.0}
+langgraph events: ['intake', 'integration_cartographer', 'scenario_architect', 'rehearsal_fabric', 'witness_gate', 'scenario_architect', 'rehearsal_fabric', 'witness_gate', 'scenario_architect', 'rehearsal_fabric', 'witness_gate', 'scenario_architect', 'rehearsal_fabric', 'witness_gate', 'handoff_seal', 'human_review']
+checkpoints.sqlite
+ledger.sqlite

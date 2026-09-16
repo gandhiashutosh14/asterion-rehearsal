@@ -1,0 +1,25 @@
+......................................................................   [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.5-final-0 ________________
+
+Name                                Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------------------
+src/asterion/__init__.py                1      0      0      0   100%
+src/asterion/api.py                    99      4     20      0    97%   82-83, 97-98
+src/asterion/catalog.py                27      0     12      0   100%
+src/asterion/cli.py                    39      1      4      1    95%   48
+src/asterion/evidence.py               38      0     10      0   100%
+src/asterion/langgraph_runtime.py      40     40      8      0     0%   6-57
+src/asterion/models.py                117      3      8      3    95%   21, 35, 64
+src/asterion/planning.py               39      4     10      2    88%   30, 32-34
+src/asterion/reporting.py              26      0      2      0   100%
+src/asterion/storage.py                84      6     24      3    92%   54, 67-68, 91-93
+src/asterion/telemetry.py              27     13      4      2    52%   9, 13-21, 27-29
+src/asterion/twin.py                   60      1     26      1    98%   34
+src/asterion/workflow.py               82      0     10      0   100%
+-------------------------------------------------------------------------------
+TOTAL                                 679     72    138     12    89%
+Coverage JSON written to file reports/verification/coverage.json
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_langgraph_integration.py:3: could not import 'langgraph': No module named 'langgraph'
+70 passed, 1 skipped in 1.91s

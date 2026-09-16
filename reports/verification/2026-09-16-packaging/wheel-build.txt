@@ -1,0 +1,10 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /mnt/data/asterion
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: asterion-rehearsal
+  Building wheel for asterion-rehearsal (pyproject.toml): started
+  Building wheel for asterion-rehearsal (pyproject.toml): finished with status 'done'
+  Created wheel for asterion-rehearsal: filename=asterion_rehearsal-0.1.0-py3-none-any.whl size=27599 sha256=7dc4e34309ebc1592567072666e64adce3f512373cec8ec893eed19900cdb4f8
+  Stored in directory: /tmp/pip-ephem-wheel-cache-qrfg2noy/wheels/69/40/02/41f4f704eed71ce5847a0a37bdb46859db6646c08955865737
+Successfully built asterion-rehearsal

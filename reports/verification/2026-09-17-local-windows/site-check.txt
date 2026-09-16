@@ -1,0 +1,6 @@
+optimistic/happy-only: embedded data identical to reports/reference/optimistic-happy-only/report.json: True; status HOLD
+optimistic/complete: embedded data identical to reports/reference/optimistic-complete/report.json: True; status BLOCKED
+guarded/happy-only: embedded data identical to reports/reference/guarded-happy-only/report.json: True; status HOLD
+guarded/complete: embedded data identical to reports/reference/guarded-complete/report.json: True; status PENDING_REVIEW
+external src/href URLs: none
+fetch/XMLHttpRequest/import calls: 0

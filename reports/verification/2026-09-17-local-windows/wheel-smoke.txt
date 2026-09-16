@@ -1,0 +1,11 @@
+$ asterion --state-dir wheel-state demo --output wheel-out   (wheel-only environment, core dependencies only)
+{
+  "run_id": "<RUN_ID>",
+  "status": "PENDING_REVIEW",
+  "coverage": 1.0,
+  "evidence_digest": "<DIGEST>",
+  "output": "<OUT>"
+}
+exit=0
+package file: \asterion\__init__.py
+scenarios in packaged catalog: 13

@@ -1,0 +1,14 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Obtaining file:///mnt/data/asterion
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: asterion-rehearsal
+  Building editable for asterion-rehearsal (pyproject.toml): started
+  Building editable for asterion-rehearsal (pyproject.toml): finished with status 'done'
+  Created wheel for asterion-rehearsal: filename=asterion_rehearsal-0.1.0-0.editable-py3-none-any.whl size=6558 sha256=def82fff45ef80cadbb4562f74ee85975c566908369a7f061d6883f17fd3cd8a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ju5hz4c8/wheels/69/40/02/41f4f704eed71ce5847a0a37bdb46859db6646c08955865737
+Successfully built asterion-rehearsal
+Installing collected packages: asterion-rehearsal
+Successfully installed asterion-rehearsal-0.1.0
