@@ -1,0 +1,12 @@
+flowchart LR
+ subgraph Azure_Target_Only
+ EN[Entra ID] --> API[Private Container Apps API]
+ API --> Q[Service Bus + worker lease]
+ Q --> W[Rehearsal worker]
+ W --> DB[(PostgreSQL Flexible Server)]
+ W --> BL[Private Blob evidence]
+ W --> AI[Azure AI Foundry adapter: future]
+ MI[Managed identity] --> W
+ KV[Key Vault] --> W
+ W --> MON[Azure Monitor / OTLP]
+ end

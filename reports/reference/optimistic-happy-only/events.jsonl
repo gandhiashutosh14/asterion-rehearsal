@@ -1,0 +1,6 @@
+{"sequence": 1, "stage": "intake", "at": "2026-09-16T18:28:09.916235+00:00", "contract_id": "northstar-order-resolution", "classification": "synthetic"}
+{"sequence": 2, "stage": "integration_cartographer", "at": "2026-09-16T18:28:09.916279+00:00", "connectors": ["synthetic-crm-v1", "synthetic-erp-v1"], "mode": "in-process fixture; no external connections"}
+{"sequence": 3, "stage": "scenario_architect", "at": "2026-09-16T18:28:09.916386+00:00", "planner": "deterministic", "selected": ["normal-a", "normal-b"], "rejected_ids": []}
+{"sequence": 4, "stage": "rehearsal_fabric", "at": "2026-09-16T18:28:09.916874+00:00", "count": 2, "external_writes": 0}
+{"sequence": 5, "stage": "witness_gate", "at": "2026-09-16T18:28:09.917391+00:00", "decision": "HOLD", "coverage": 0.08333333333333333}
+{"sequence": 6, "stage": "handoff_seal", "at": "2026-09-16T18:28:09.917477+00:00", "evidence_digest": "9f904fafe522e7308f38e7df2520cb850b928f7c2ccbc5845b511b9896a3440a", "status": "HOLD"}

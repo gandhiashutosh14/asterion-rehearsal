@@ -1,0 +1,65 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "enum": [
+        "resolved",
+        "escalated",
+        "needs_approval",
+        "needs_information"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "owner": {
+      "title": "Owner",
+      "type": "string"
+    },
+    "claim_completed": {
+      "title": "Claim Completed",
+      "type": "boolean"
+    },
+    "evidence_sources": {
+      "minimum": 0,
+      "title": "Evidence Sources",
+      "type": "integer"
+    },
+    "effect_count": {
+      "minimum": 0,
+      "title": "Effect Count",
+      "type": "integer"
+    },
+    "cross_tenant_read": {
+      "default": false,
+      "title": "Cross Tenant Read",
+      "type": "boolean"
+    },
+    "note_as_instruction": {
+      "default": false,
+      "title": "Note As Instruction",
+      "type": "boolean"
+    },
+    "within_deadline": {
+      "default": true,
+      "title": "Within Deadline",
+      "type": "boolean"
+    },
+    "trace": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Trace",
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision",
+    "owner",
+    "claim_completed",
+    "evidence_sources",
+    "effect_count"
+  ],
+  "title": "Observation",
+  "type": "object"
+}

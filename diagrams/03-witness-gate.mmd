@@ -1,0 +1,11 @@
+flowchart TD
+ R[Required obligation x slice cells] --> M[Cell matrix]
+ W[Collected witnesses] --> B{Compatible bindings?}
+ B -->|no| F[BLOCKED]
+ B -->|yes| M
+ M --> C{Critical failure?}
+ C -->|yes| F
+ C -->|no| U{Missing or noncritical failure?}
+ U -->|yes| H[HOLD]
+ U -->|no| P[READY_FOR_REVIEW]
+ P --> A[Human authority bound to evidence digest]

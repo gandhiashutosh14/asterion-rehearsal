@@ -1,0 +1,16 @@
+flowchart LR
+ subgraph IaC_Source_Not_Applied
+ GH[GitHub OIDC exact repo + environment] --> IAM[Image publisher role]
+ IAM --> ECR[Immutable ECR repository]
+ KMS[KMS key] --> S3[Private S3 evidence bucket]
+ CW[CloudWatch log group]
+ end
+ subgraph Service_Target_Not_Implemented
+ IDP[Customer identity] --> API[Private API / ECS]
+ API --> Q[Queue + admission outbox]
+ Q --> W[Isolated worker]
+ W --> DB[(Aurora ledger + checkpoints)]
+ W --> S3
+ W --> BR[Optional Bedrock]
+ W --> CW
+ end

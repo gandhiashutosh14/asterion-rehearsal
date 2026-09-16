@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "profile": {
+      "default": "guarded",
+      "enum": [
+        "guarded",
+        "optimistic"
+      ],
+      "title": "Profile",
+      "type": "string"
+    },
+    "suite": {
+      "default": "complete",
+      "enum": [
+        "complete",
+        "happy-only"
+      ],
+      "title": "Suite",
+      "type": "string"
+    },
+    "engine": {
+      "default": "reference",
+      "enum": [
+        "reference",
+        "langgraph"
+      ],
+      "title": "Engine",
+      "type": "string"
+    },
+    "planner": {
+      "default": "deterministic",
+      "enum": [
+        "deterministic",
+        "bedrock"
+      ],
+      "title": "Planner",
+      "type": "string"
+    },
+    "max_cases": {
+      "default": 32,
+      "maximum": 64,
+      "minimum": 1,
+      "title": "Max Cases",
+      "type": "integer"
+    },
+    "max_rounds": {
+      "default": 4,
+      "maximum": 8,
+      "minimum": 1,
+      "title": "Max Rounds",
+      "type": "integer"
+    }
+  },
+  "title": "RunRequest",
+  "type": "object"
+}

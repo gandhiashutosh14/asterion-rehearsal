@@ -1,0 +1,9 @@
+flowchart LR
+ U[Untrusted caller] --> A[Principal-to-tenant mapping]
+ M[Optional model] --> C[Catalog whitelist + budget]
+ C --> T[Target receives inputs only]
+ T --> V[Trusted verifier]
+ O[Curated oracle] --> V
+ V --> G[Binding and coverage gate]
+ G --> H[Reviewer + recomputed digest]
+ H --> E[Manifest: integrity, not authenticity]

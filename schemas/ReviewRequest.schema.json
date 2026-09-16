@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "enum": [
+        "approve",
+        "reject"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "expected_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Expected Digest",
+      "type": "string"
+    },
+    "rationale": {
+      "maxLength": 2000,
+      "minLength": 5,
+      "title": "Rationale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision",
+    "expected_digest",
+    "rationale"
+  ],
+  "title": "ReviewRequest",
+  "type": "object"
+}

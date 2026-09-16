@@ -1,0 +1,17 @@
+stateDiagram-v2
+ [*] --> Intake
+ Intake --> Discover
+ Discover --> Plan
+ Plan --> Rehearse
+ Rehearse --> Evaluate
+ Evaluate --> Plan: eligible cases and budget remain
+ Evaluate --> Seal: complete / budget / no progress
+ Seal --> Hold: missing cells
+ Seal --> Blocked: critical fail or invalid witness
+ Seal --> PendingReview: full passing coverage
+ PendingReview --> Approved: exact digest / reviewer approves
+ PendingReview --> Rejected: exact digest / reviewer rejects
+ Hold --> [*]
+ Blocked --> [*]
+ Approved --> [*]
+ Rejected --> [*]

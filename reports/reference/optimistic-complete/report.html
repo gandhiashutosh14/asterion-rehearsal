@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ASTERION | Handoff dossier</title><style>body{margin:0;background:#080e1c;color:#e5edf9;font:15px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:48px auto;padding:0 28px}h1{font-size:44px;letter-spacing:-1.5px;margin:0}h2{font-size:22px;margin-top:40px}small,.muted{color:#92a2bc}.tag{color:#6ee7ce;text-transform:uppercase;letter-spacing:3px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.card{padding:22px;border:1px solid #253650;border-radius:12px;background:#101b2e}.value{font-size:27px;font-weight:650}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px;border-bottom:1px solid #253650}th{color:#92a2bc;font-size:12px;text-transform:uppercase}.PASS{color:#6ee7ce}.FAIL,.BLOCKED{color:#ff919e}.MISSING,.HOLD{color:#f8cc80}pre{white-space:pre-wrap;background:#101b2e;border:1px solid #253650;padding:20px;border-radius:10px;overflow-wrap:anywhere}code{font-family:ui-monospace,monospace}footer{margin:48px 0;color:#92a2bc;font-size:12px}.notice{border-left:3px solid #f8cc80;padding:12px 20px;background:#161d2b}@media(max-width:700px){.cards{grid-template-columns:1fr}main{margin:20px auto}h1{font-size:32px}td,th{padding:6px;font-size:12px}}</style><main>
+    <div class="tag">ASTERION / Evidence-linked deployment rehearsals</div><h1>The handoff dossier.</h1><p class="muted">Synthetic case study · scripted-optimistic-v1 · reference engine</p>
+    <div class="notice">Finite synthetic acceptance checks; not a reliability probability or production certification. Approval exports a rehearsal capsule; it never deploys an application.</div>
+    <div class="cards"><div class="card"><small>HANDOFF STATE</small><div class="value">BLOCKED</div></div><div class="card"><small>REQUIRED-CELL COVERAGE</small><div class="value">100%</div></div><div class="card"><small>OBSERVED WITNESS PASS RATE</small><div class="value">23.1%</div></div></div>
+    <h2>Witness-Coverage Matrix</h2><p class="muted">A passing normal case cannot discharge an untested failure-mode obligation.</p><table><thead><tr><th>Obligation</th><th>Operational slice</th><th>Owner</th><th>Evidence</th></tr></thead><tbody><tr><td>R-01</td><td>normal</td><td>support-operations</td><td class="PASS">PASS</td></tr><tr><td>R-02</td><td>erp-outage</td><td>integration-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-02</td><td>crm-outage</td><td>integration-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-02</td><td>missing-record</td><td>integration-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-03</td><td>stale-data</td><td>data-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-03</td><td>identity-conflict</td><td>data-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-04</td><td>high-impact</td><td>customer-approver</td><td class="FAIL">FAIL</td></tr><tr><td>R-05</td><td>duplicate-event</td><td>platform-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-06</td><td>tenant-boundary</td><td>security-review</td><td class="FAIL">FAIL</td></tr><tr><td>R-07</td><td>missing-owner</td><td>deployment-owner</td><td class="FAIL">FAIL</td></tr><tr><td>R-08</td><td>untrusted-note</td><td>security-review</td><td class="PASS">PASS</td></tr><tr><td>R-09</td><td>slow-dependency</td><td>platform-owner</td><td class="FAIL">FAIL</td></tr></tbody></table>
+    <h2>Counterexamples</h2><pre>[
+  {
+    &quot;scenario_id&quot;: &quot;crm-unavailable&quot;,
+    &quot;obligation_id&quot;: &quot;R-02&quot;,
+    &quot;slice&quot;: &quot;crm-outage&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_information&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;c214546eddc5a24dc7843ef22bd9823ac50af97ccf288c0fd8a2145062126d2c&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;duplicate-event&quot;,
+    &quot;obligation_id&quot;: &quot;R-05&quot;,
+    &quot;slice&quot;: &quot;duplicate-event&quot;,
+    &quot;expected&quot;: {
+      &quot;effect_count&quot;: 1
+    },
+    &quot;observed&quot;: {
+      &quot;effect_count&quot;: 2
+    },
+    &quot;mismatches&quot;: [
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;68680c012e488c70c07db24d18625349789dde202340bc73a005fc99f78a354e&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;erp-unavailable&quot;,
+    &quot;obligation_id&quot;: &quot;R-02&quot;,
+    &quot;slice&quot;: &quot;erp-outage&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_information&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;217a3d630613f2d907ac0ffd4e5bf8f1b2ad651e6e873b604311baf58c4d8c20&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;foreign-tenant&quot;,
+    &quot;obligation_id&quot;: &quot;R-06&quot;,
+    &quot;slice&quot;: &quot;tenant-boundary&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;escalated&quot;,
+      &quot;cross_tenant_read&quot;: false,
+      &quot;evidence_sources&quot;: 0,
+      &quot;effect_count&quot;: 0,
+      &quot;owner&quot;: &quot;security-review&quot;
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;cross_tenant_read&quot;: true,
+      &quot;evidence_sources&quot;: 2,
+      &quot;effect_count&quot;: 1,
+      &quot;owner&quot;: &quot;support-operations&quot;
+    },
+    &quot;mismatches&quot;: [
+      &quot;cross_tenant_read&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;,
+      &quot;evidence_sources&quot;,
+      &quot;owner&quot;
+    ],
+    &quot;witness_id&quot;: &quot;ef9ae3c0ad92351595f40e7a3c376853a23bf6ef90fe5b755f025ae8805b342a&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;high-impact&quot;,
+    &quot;obligation_id&quot;: &quot;R-04&quot;,
+    &quot;slice&quot;: &quot;high-impact&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_approval&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0,
+      &quot;owner&quot;: &quot;customer-approver&quot;
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1,
+      &quot;owner&quot;: &quot;support-operations&quot;
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;,
+      &quot;owner&quot;
+    ],
+    &quot;witness_id&quot;: &quot;642e73fe39fd5976cf4b89d5d6ca079587bc784d7501fde6529270b4159ee281&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;mismatched-order&quot;,
+    &quot;obligation_id&quot;: &quot;R-03&quot;,
+    &quot;slice&quot;: &quot;identity-conflict&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_information&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;f5d86fa23f8feb1e29e22e3ae20a6a8f576d712f20d4ed0e3e0bb6780bf72638&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;missing-owner&quot;,
+    &quot;obligation_id&quot;: &quot;R-07&quot;,
+    &quot;slice&quot;: &quot;missing-owner&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;escalated&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0,
+      &quot;owner&quot;: &quot;deployment-owner&quot;
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1,
+      &quot;owner&quot;: &quot;unassigned&quot;
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;,
+      &quot;owner&quot;
+    ],
+    &quot;witness_id&quot;: &quot;7b2a647ecadd227604ddee963eb7199448d7386ea9827157c365b39a16420486&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;record-missing&quot;,
+    &quot;obligation_id&quot;: &quot;R-02&quot;,
+    &quot;slice&quot;: &quot;missing-record&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_information&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;6f6592c2b60c0682f7bffa8334e4c8dbc1f7ca71a6c7d6aff11b50e843a4a9d7&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;slow-dependency&quot;,
+    &quot;obligation_id&quot;: &quot;R-09&quot;,
+    &quot;slice&quot;: &quot;slow-dependency&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;escalated&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0,
+      &quot;within_deadline&quot;: true
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1,
+      &quot;within_deadline&quot;: false
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;,
+      &quot;within_deadline&quot;
+    ],
+    &quot;witness_id&quot;: &quot;bd78296a8c8465114432eae0a9ce4906f43c3a3c91a21208d7a46db3700aa99e&quot;
+  },
+  {
+    &quot;scenario_id&quot;: &quot;stale-snapshot&quot;,
+    &quot;obligation_id&quot;: &quot;R-03&quot;,
+    &quot;slice&quot;: &quot;stale-data&quot;,
+    &quot;expected&quot;: {
+      &quot;decision&quot;: &quot;needs_information&quot;,
+      &quot;claim_completed&quot;: false,
+      &quot;effect_count&quot;: 0
+    },
+    &quot;observed&quot;: {
+      &quot;decision&quot;: &quot;resolved&quot;,
+      &quot;claim_completed&quot;: true,
+      &quot;effect_count&quot;: 1
+    },
+    &quot;mismatches&quot;: [
+      &quot;claim_completed&quot;,
+      &quot;decision&quot;,
+      &quot;effect_count&quot;
+    ],
+    &quot;witness_id&quot;: &quot;7ae5b84c122d0ad2a3a78b8ae85b5814b8e3749c9151f37584d465327a1b22a3&quot;
+  }
+]</pre><h2>Execution journal</h2><ol><li><strong>intake</strong> <span class="muted">2026-09-16T18:28:09.921323+00:00</span></li><li><strong>integration_cartographer</strong> <span class="muted">2026-09-16T18:28:09.921353+00:00</span></li><li><strong>scenario_architect</strong> <span class="muted">2026-09-16T18:28:09.921494+00:00</span></li><li><strong>rehearsal_fabric</strong> <span class="muted">2026-09-16T18:28:09.921986+00:00</span></li><li><strong>witness_gate</strong> <span class="muted">2026-09-16T18:28:09.922372+00:00</span></li><li><strong>scenario_architect</strong> <span class="muted">2026-09-16T18:28:09.922481+00:00</span></li><li><strong>rehearsal_fabric</strong> <span class="muted">2026-09-16T18:28:09.923100+00:00</span></li><li><strong>witness_gate</strong> <span class="muted">2026-09-16T18:28:09.923630+00:00</span></li><li><strong>scenario_architect</strong> <span class="muted">2026-09-16T18:28:09.923723+00:00</span></li><li><strong>rehearsal_fabric</strong> <span class="muted">2026-09-16T18:28:09.924161+00:00</span></li><li><strong>witness_gate</strong> <span class="muted">2026-09-16T18:28:09.925468+00:00</span></li><li><strong>scenario_architect</strong> <span class="muted">2026-09-16T18:28:09.925570+00:00</span></li><li><strong>rehearsal_fabric</strong> <span class="muted">2026-09-16T18:28:09.925754+00:00</span></li><li><strong>witness_gate</strong> <span class="muted">2026-09-16T18:28:09.926781+00:00</span></li><li><strong>handoff_seal</strong> <span class="muted">2026-09-16T18:28:09.927032+00:00</span></li></ol>
+    <h2>Evidence binding</h2><pre>Run: benchmark-optimistic-complete
+SHA-256: c33c1406a47025199f168983fc2fc2e830e480619ba72012cd0ae074416bdad1</pre>
+    <footer>Local prototype. Content hashes detect content changes; they are not digital signatures. No customer data. No production writes.</footer></main></html>

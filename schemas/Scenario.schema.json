@@ -1,0 +1,138 @@
+{
+  "$defs": {
+    "CaseInput": {
+      "additionalProperties": false,
+      "properties": {
+        "tenant": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "title": "Tenant",
+          "type": "string"
+        },
+        "record_tenant": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "title": "Record Tenant",
+          "type": "string"
+        },
+        "order_id": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "event_id": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "crm_order_id": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Crm Order Id",
+          "type": "string"
+        },
+        "amount_units": {
+          "maximum": 1000000,
+          "minimum": 0,
+          "title": "Amount Units",
+          "type": "integer"
+        },
+        "age_seconds": {
+          "maximum": 100000,
+          "minimum": 0,
+          "title": "Age Seconds",
+          "type": "integer"
+        },
+        "erp_available": {
+          "default": true,
+          "title": "Erp Available",
+          "type": "boolean"
+        },
+        "crm_available": {
+          "default": true,
+          "title": "Crm Available",
+          "type": "boolean"
+        },
+        "order_exists": {
+          "default": true,
+          "title": "Order Exists",
+          "type": "boolean"
+        },
+        "has_owner": {
+          "default": true,
+          "title": "Has Owner",
+          "type": "boolean"
+        },
+        "duplicate": {
+          "default": false,
+          "title": "Duplicate",
+          "type": "boolean"
+        },
+        "simulated_delay_ms": {
+          "maximum": 100000,
+          "minimum": 0,
+          "title": "Simulated Delay Ms",
+          "type": "integer"
+        },
+        "note": {
+          "maxLength": 1000,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant",
+        "record_tenant",
+        "order_id",
+        "event_id",
+        "crm_order_id",
+        "amount_units",
+        "age_seconds",
+        "simulated_delay_ms",
+        "note"
+      ],
+      "title": "CaseInput",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^[a-z0-9-]{1,60}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 180,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "slice": {
+      "maxLength": 60,
+      "minLength": 1,
+      "title": "Slice",
+      "type": "string"
+    },
+    "inputs": {
+      "$ref": "#/$defs/CaseInput"
+    },
+    "expected": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Expected",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "slice",
+    "inputs",
+    "expected"
+  ],
+  "title": "Scenario",
+  "type": "object"
+}

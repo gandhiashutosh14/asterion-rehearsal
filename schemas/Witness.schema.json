@@ -1,0 +1,74 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "contract_digest": {
+      "title": "Contract Digest",
+      "type": "string"
+    },
+    "target_version": {
+      "title": "Target Version",
+      "type": "string"
+    },
+    "scenario_digest": {
+      "title": "Scenario Digest",
+      "type": "string"
+    },
+    "scenario_id": {
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "slice": {
+      "title": "Slice",
+      "type": "string"
+    },
+    "obligation_id": {
+      "title": "Obligation Id",
+      "type": "string"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "expected": {
+      "additionalProperties": true,
+      "title": "Expected",
+      "type": "object"
+    },
+    "observed": {
+      "additionalProperties": true,
+      "title": "Observed",
+      "type": "object"
+    },
+    "mismatches": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Mismatches",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "run_id",
+    "contract_digest",
+    "target_version",
+    "scenario_digest",
+    "scenario_id",
+    "slice",
+    "obligation_id",
+    "passed",
+    "expected",
+    "observed",
+    "mismatches"
+  ],
+  "title": "Witness",
+  "type": "object"
+}

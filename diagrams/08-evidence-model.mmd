@@ -1,0 +1,13 @@
+erDiagram
+ CONTRACT ||--|{ OBLIGATION : owns
+ OBLIGATION ||--|{ REQUIRED_CELL : requires
+ SCENARIO ||--|{ EXPECTED_CHECK : specifies
+ SCENARIO ||--|| CASE_INPUT : provides
+ CASE_INPUT ||--o{ OBSERVATION : produces
+ OBSERVATION ||--|{ WITNESS : verified_as
+ EXPECTED_CHECK ||--o{ WITNESS : checked_by
+ RUN ||--|{ WITNESS : binds
+ REQUIRED_CELL ||--o{ WITNESS : covered_by
+ RUN ||--|| ASSESSMENT : summarizes
+ RUN ||--o| REVIEW : accepted_or_rejected
+ REVIEW ||--|| CAPSULE : records

@@ -1,0 +1,13 @@
+{
+  "kind": "rehearsal-dossier",
+  "production_deployment": false,
+  "status": "BLOCKED",
+  "evidence_digest": "c33c1406a47025199f168983fc2fc2e830e480619ba72012cd0ae074416bdad1",
+  "files": {
+    "report.json": "3b92a17ded4fabaa5964f7a6085254171ba2e28e543350bcc09b9f6121777135",
+    "report.md": "d6ac5424fbe5f65536f90de1e2d94f27f9a93d20b5fe98313d75fe17b992dc67",
+    "report.html": "b33ef7ce1564476c9b3f649cc4db6909f2de231c1594e5363489c05a491e7b0e",
+    "events.jsonl": "0a464a34b98c39ea1ba4bc5dcf3d762fcaa6a959ce55ae2fe88fba51567ba80b"
+  },
+  "hash_encoding": "SHA-256 of raw UTF-8 file bytes; not a signature"
+}

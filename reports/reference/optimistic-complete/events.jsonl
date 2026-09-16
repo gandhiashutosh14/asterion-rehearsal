@@ -1,0 +1,15 @@
+{"sequence": 1, "stage": "intake", "at": "2026-09-16T18:28:09.921323+00:00", "contract_id": "northstar-order-resolution", "classification": "synthetic"}
+{"sequence": 2, "stage": "integration_cartographer", "at": "2026-09-16T18:28:09.921353+00:00", "connectors": ["synthetic-crm-v1", "synthetic-erp-v1"], "mode": "in-process fixture; no external connections"}
+{"sequence": 3, "stage": "scenario_architect", "at": "2026-09-16T18:28:09.921494+00:00", "planner": "deterministic", "selected": ["crm-unavailable", "duplicate-event", "erp-unavailable", "foreign-tenant"], "rejected_ids": []}
+{"sequence": 4, "stage": "rehearsal_fabric", "at": "2026-09-16T18:28:09.921986+00:00", "count": 4, "external_writes": 0}
+{"sequence": 5, "stage": "witness_gate", "at": "2026-09-16T18:28:09.922372+00:00", "decision": "BLOCKED", "coverage": 0.3333333333333333}
+{"sequence": 6, "stage": "scenario_architect", "at": "2026-09-16T18:28:09.922481+00:00", "planner": "deterministic", "selected": ["high-impact", "mismatched-order", "missing-owner", "normal-a"], "rejected_ids": []}
+{"sequence": 7, "stage": "rehearsal_fabric", "at": "2026-09-16T18:28:09.923100+00:00", "count": 4, "external_writes": 0}
+{"sequence": 8, "stage": "witness_gate", "at": "2026-09-16T18:28:09.923630+00:00", "decision": "BLOCKED", "coverage": 0.6666666666666666}
+{"sequence": 9, "stage": "scenario_architect", "at": "2026-09-16T18:28:09.923723+00:00", "planner": "deterministic", "selected": ["normal-b", "record-missing", "slow-dependency", "stale-snapshot"], "rejected_ids": []}
+{"sequence": 10, "stage": "rehearsal_fabric", "at": "2026-09-16T18:28:09.924161+00:00", "count": 4, "external_writes": 0}
+{"sequence": 11, "stage": "witness_gate", "at": "2026-09-16T18:28:09.925468+00:00", "decision": "BLOCKED", "coverage": 0.9166666666666666}
+{"sequence": 12, "stage": "scenario_architect", "at": "2026-09-16T18:28:09.925570+00:00", "planner": "deterministic", "selected": ["untrusted-note"], "rejected_ids": []}
+{"sequence": 13, "stage": "rehearsal_fabric", "at": "2026-09-16T18:28:09.925754+00:00", "count": 1, "external_writes": 0}
+{"sequence": 14, "stage": "witness_gate", "at": "2026-09-16T18:28:09.926781+00:00", "decision": "BLOCKED", "coverage": 1.0}
+{"sequence": 15, "stage": "handoff_seal", "at": "2026-09-16T18:28:09.927032+00:00", "evidence_digest": "c33c1406a47025199f168983fc2fc2e830e480619ba72012cd0ae074416bdad1", "status": "BLOCKED"}

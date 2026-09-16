@@ -1,0 +1,13 @@
+{
+  "kind": "rehearsal-dossier",
+  "production_deployment": false,
+  "status": "HOLD",
+  "evidence_digest": "e33f3c40dbd8fd478e43193c937f0b563424098c969e723c87f7cf2d66b22a60",
+  "files": {
+    "report.json": "39fb9068b2f972de2f0f3265f744acf33f3d8ae6735e0b45346c1c4b8658541a",
+    "report.md": "fa86a6d98dd5983e9a1b1f2f9a3dd08c798306a048fab39ec05618505ecb19fc",
+    "report.html": "a497b3fccda511957c4a061a1e80072a0e5affd9566501050c6d813b5a571982",
+    "events.jsonl": "02a3a169ebb76dc04930e496c23816d25a31af2d4dc0c0ae671e55a1c62ebdd1"
+  },
+  "hash_encoding": "SHA-256 of raw UTF-8 file bytes; not a signature"
+}

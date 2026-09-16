@@ -1,0 +1,14 @@
+flowchart LR
+ C[Customer acceptance contract] --> API[FastAPI admission]
+ API --> D[Declared integration context]
+ D --> P[Bounded scenario planner]
+ P --> X[Input-only scripted target]
+ O[Independent curated oracle] --> V[Observation verifier]
+ X --> V
+ V --> G[Witness-Coverage Gate]
+ G --> S[Evidence digest]
+ S --> H[Human review]
+ H --> E[Local handoff capsule]
+ API --> L[(SQLite ledger)]
+ P -. optional .-> B[Bedrock catalog-ID proposer]
+ S -. optional .-> I[LangGraph interrupt / SQLite checkpoint]
