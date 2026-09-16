@@ -48,4 +48,4 @@ Before a real customer pilot: validate identity and tenancy, implement queue/lea
 5. Identity, networking, upload and restore smoke tests.
 6. Controlled teardown and evidence of deleted resources.
 
-Only the first level was considered during packaging; no cloud resources were provisioned. Sources were consulted on 2026-09-16. Provider support and organization policies must be rechecked at deployment time.
+Level 1 was done during packaging. Level 2 runs in the `infra-validate` GitHub workflow, which passed on 2026-09-17 without a committed lock file. Levels 3 to 6 have not been attempted, and no cloud resources were provisioned. Sources were consulted on 2026-09-16 and their links rechecked on 2026-09-17. Provider support and organization policies must be rechecked at deployment time.

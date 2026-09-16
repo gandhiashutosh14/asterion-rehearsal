@@ -2,7 +2,7 @@
 
 This Terraform module creates an ECR repository, private encrypted S3 evidence bucket, KMS key, log group, and narrowly scoped GitHub OIDC image-publisher role. It does **not** create an ECS service, application user identity, queue, database, model deployment, or private networking. The application currently exports files locally and does not automatically use this bucket.
 
-**Verification status:** source reviewed, not initialized, formatted, validated or applied with Terraform in the packaging environment. Do not interpret the architecture diagram as implemented IaC coverage.
+**Verification status:** source reviewed. The `infra-validate` GitHub workflow passed `terraform fmt -check`, `terraform init -backend=false` and `terraform validate` on 2026-09-17 (Terraform 1.16.3, hashicorp/aws 6.64.0). No lock file is committed, no plan was produced and nothing was applied. Do not interpret the architecture diagram as implemented IaC coverage.
 
 ## Operator prerequisites
 

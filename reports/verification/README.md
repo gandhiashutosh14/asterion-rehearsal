@@ -21,4 +21,13 @@ files were changed, moved or added before publication.
 
 ## GitHub Actions
 
-Workflow definitions live in `.github/workflows/`. Results are recorded here once runs complete.
+Workflow definitions live in `.github/workflows/`. Results for the first published commit, `abd83a3`, on 2026-09-17:
+
+| Workflow | Trigger | Result |
+|---|---|---|
+| [reference-and-framework-tests](https://github.com/gandhiashutosh14/asterion-rehearsal/actions/runs/35153403237) | push | Passed on Python 3.11, 3.12 and 3.13. Each job: 73 passed, 0 skipped, 0 failures; 94% coverage; benchmark exported; all eight dossier manifests (four committed, four fresh) verified; asset check passed; 10 of 10 API smoke checks; sdist and wheel built |
+| [infra-validate](https://github.com/gandhiashutosh14/asterion-rehearsal/actions/runs/35153443028) | manual (path filters do not fire on a repository's first push) | Passed: Terraform 1.16.3, hashicorp/aws 6.64.0, `fmt -check`, `init -backend=false`, `validate` ("The configuration is valid") |
+| [container-recipe-check](https://github.com/gandhiashutosh14/asterion-rehearsal/actions/runs/35153419324) | manual | Passed: image built; catalog loaded 13 scenarios inside it; a read-only container with all capabilities dropped returned `{"status":"ok","mode":"synthetic-only","version":"0.1.0"}` from `/healthz`, running as user `10001:10001` |
+| publish-image-with-oidc | manual only | Not run: it needs an AWS account, role and protected environment that do not exist |
+
+Later runs are listed on the [Actions page](https://github.com/gandhiashutosh14/asterion-rehearsal/actions).

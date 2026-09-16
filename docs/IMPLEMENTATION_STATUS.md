@@ -17,10 +17,10 @@ Release: **0.1.0 preview / local prototype**. Packaged 2026-09-16; verified loca
 | OpenTelemetry | Optional node spans and OTLP setup | Span context exercised when the API is present; collector export not validated |
 | Browser showcase | Offline interactive measured-results explorer | Browser-rendered and interaction-checked with Playwright during packaging; page unchanged since, and statically confirmed to embed exactly the committed reports |
 | Packaging | setuptools project, `asterion` console script | Wheel and sdist built; the wheel ran the demo in a fresh environment with core dependencies only |
-| Docker | Non-root recipe + local-only Compose | Not built locally (Docker unavailable); the manual `container-check` workflow builds it and probes `/healthz` on GitHub Actions |
-| AWS foundation | ECR, S3, KMS, log group, OIDC image publisher Terraform | Not initialized locally (Terraform unavailable); the `infra-validate` workflow runs `terraform fmt -check` and `validate` without a backend; never applied |
+| Docker | Non-root recipe + local-only Compose | Built on GitHub Actions (`container-check`, 2026-09-17); the image loaded the 13-scenario catalog, and a read-only, capability-dropped container served `/healthz` as user 10001. Not built locally (Docker unavailable); not deployed anywhere |
+| AWS foundation | ECR, S3, KMS, log group, OIDC image publisher Terraform | `terraform fmt -check`, `init -backend=false` and `validate` passed on GitHub Actions (Terraform 1.16.3, AWS provider 6.64.0); no lock file, plan or apply |
 | AWS full service / Azure | Detailed reference topology | Architecture only; no queue, managed DB, SSO or cloud service |
-| CI | Python 3.11–3.13 matrix including the framework tests, API smoke test, dossier verification and package build | Runs on every push; results are recorded in `reports/verification/README.md` |
+| CI | Python 3.11–3.13 matrix including the framework tests, API smoke test, dossier verification and package build | Passed on all three versions for the first published commit: 73 passed, 0 skipped, 94% coverage, 10/10 smoke checks, sdist and wheel built. Later runs are on the Actions page |
 
 Read the dated records under [`reports/verification/`](../reports/verification/README.md) for the exact commands, logs and dependency versions; this document is a scope table, not a CI badge. `requirements-core.txt` lists the core versions used by the packaging run.
 

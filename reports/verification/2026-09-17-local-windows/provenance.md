@@ -4,9 +4,9 @@
 
 | Category | Files |
 |---|---:|
-| Byte-identical at the original path | 117 |
+| Byte-identical at the original path | 115 |
 | Byte-identical, moved (plus the manifest itself) | 9 |
-| Modified | 18 |
+| Modified | 20 |
 | Added | 15 |
 | Removed | 0 |
 
@@ -32,7 +32,9 @@
 - `README.md`: badges, verified-results summary, clone and smoke-test commands, LangGraph status
 - `START_HERE.md`: packaging-time publishing instructions replaced by pointers to verification records
 - `docs/DEVELOPMENT_NOTES.md`: replaces the package's collaboration note; records what was checked and changed at publication
+- `docs/CLOUD_ARCHITECTURE.md`: verification ladder: level 2 now runs in CI
 - `docs/IMPLEMENTATION_STATUS.md`: validation column updated to what has now run
+- `infra/aws/README.md`: verification status: fmt/validate result from CI
 - `infra/aws/main.tf`: `=` alignment for `terraform fmt`; no resource change
 - `pyproject.toml`: setuptools 77+, licence file, URLs, keywords, classifiers
 - `scripts/benchmark.py`: POSIX paths in the source manifest; explicit UTF-8/LF output
