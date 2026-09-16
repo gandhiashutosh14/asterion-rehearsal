@@ -1,0 +1,5 @@
+# Keep LF everywhere: exported dossiers carry SHA-256 manifests of their exact bytes and the
+# benchmark records source-file hashes, so CRLF conversion on checkout would break both.
+* text=auto eol=lf
+*.png binary
+*.gif binary

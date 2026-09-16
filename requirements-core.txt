@@ -1,0 +1,3 @@
+# Exact versions used for local artifact verification; install dev extras for tests.
+pydantic==2.13.4
+PyYAML==6.0.3

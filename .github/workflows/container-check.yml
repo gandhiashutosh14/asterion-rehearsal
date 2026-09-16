@@ -1,0 +1,28 @@
+name: container-recipe-check
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t asterion:local .
+      - run: docker run --rm asterion:local python -c "from asterion.catalog import load_catalog; assert len(load_catalog()[1]) == 13"
+      - name: Start the API read-only, as compose.yaml does, and probe /healthz
+        run: |
+          docker run -d --name rehearsal -p 127.0.0.1:8000:8000 --read-only --tmpfs /tmp \
+            --cap-drop ALL --security-opt no-new-privileges:true -v rehearsal-data:/data asterion:local
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/healthz; then
+              echo
+              echo "container user: $(docker inspect --format '{{.Config.User}}' rehearsal)"
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs rehearsal
+          exit 1
+      - if: always()
+        run: docker rm -f rehearsal || true

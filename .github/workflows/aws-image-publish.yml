@@ -1,0 +1,30 @@
+# Manual image publication only. No ECS rollout, Terraform apply, or cloud writes on push.
+name: publish-image-with-oidc
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    environment: rehearsal
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate repository configuration
+        env:
+          ROLE: ${{ vars.AWS_IMAGE_ROLE_ARN }}
+          REGION: ${{ vars.AWS_REGION }}
+          URI: ${{ vars.ECR_REPOSITORY_URI }}
+        run: test -n "$ROLE" && test -n "$REGION" && test -n "$URI"
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_IMAGE_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - uses: aws-actions/amazon-ecr-login@v2
+      - name: Build and push reviewed revision
+        env:
+          REPO: ${{ vars.ECR_REPOSITORY_URI }}
+        run: |
+          docker build -t "$REPO:$GITHUB_SHA" .
+          docker push "$REPO:$GITHUB_SHA"

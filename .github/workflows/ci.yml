@@ -1,0 +1,46 @@
+name: reference-and-framework-tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[api,dev,agent]" build
+      - name: Tests, including the native LangGraph module
+        run: python -m pytest --cov=asterion --cov-report=term-missing --junitxml=artifacts/junit.xml
+      - name: Fail if any test was skipped (a skip is not framework verification)
+        run: |
+          python - <<'EOF'
+          import sys
+          import xml.etree.ElementTree as ET
+          root = ET.parse("artifacts/junit.xml").getroot()
+          suite = root if root.tag == "testsuite" else root.find("testsuite")
+          print("tests:", suite.get("tests"), "skipped:", suite.get("skipped"), "failures:", suite.get("failures"))
+          sys.exit(1 if int(suite.get("skipped", "0")) else 0)
+          EOF
+      - run: python scripts/benchmark.py --output artifacts/reference
+      - name: Verify committed and freshly exported dossier manifests
+        run: |
+          for d in reports/reference/*/ artifacts/reference/*/; do python scripts/verify_dossier.py "$d"; done
+      - run: python scripts/check_assets.py
+      - name: HTTP smoke test under uvicorn
+        run: python scripts/api_smoke.py
+      - name: Build sdist and wheel
+        run: python -m build --outdir artifacts/dist
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-python-${{ matrix.python }}
+          path: artifacts/
