@@ -21,7 +21,7 @@ files were changed, moved or added before publication.
 
 ## GitHub Actions
 
-Workflow definitions live in `.github/workflows/`. Results for the first published commit, `abd83a3`, on 2026-09-17:
+Workflow definitions live in `.github/workflows/`. Results for the first published commit, `79e48ac`, on 2026-09-17. The runs below executed before that commit's author metadata was rewritten; the code they tested is unchanged.
 
 | Workflow | Trigger | Result |
 |---|---|---|
