@@ -18,7 +18,7 @@ Release: **0.1.0 preview / local prototype**. Packaged 2026-09-16; verified loca
 | Browser showcase | Offline interactive measured-results explorer | Browser-rendered and interaction-checked with Playwright during packaging; page unchanged since, and statically confirmed to embed exactly the committed reports |
 | Packaging | setuptools project, `asterion` console script | Wheel and sdist built; the wheel ran the demo in a fresh environment with core dependencies only |
 | Docker | Non-root recipe + local-only Compose | Built on GitHub Actions (`container-check`, 2026-09-17); the image loaded the 13-scenario catalog, and a read-only, capability-dropped container served `/healthz` as user 10001. Not built locally (Docker unavailable); not deployed anywhere |
-| AWS foundation | ECR, S3, KMS, log group, OIDC image publisher Terraform | `terraform fmt -check`, `init -backend=false` and `validate` passed on GitHub Actions (Terraform 1.16.3, AWS provider 6.64.0); no lock file, plan or apply |
+| AWS foundation | ECR, S3, KMS, log group, OIDC image publisher Terraform | `terraform fmt -check`, `init -backend=false` and `validate` passed on GitHub Actions (Terraform 1.16.3, AWS provider 6.65.0); no lock file, plan or apply |
 | AWS full service / Azure | Detailed reference topology | Architecture only; no queue, managed DB, SSO or cloud service |
 | CI | Python 3.11–3.13 matrix including the framework tests, API smoke test, dossier verification and package build | Passed on all three versions for the first published commit: 73 passed, 0 skipped, 94% coverage, 10/10 smoke checks, sdist and wheel built. Later runs are on the Actions page |
 
